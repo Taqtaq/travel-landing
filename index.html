@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelBuddy — Travel Landing</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Cookie Banner -->
+  <div class="cookie" id="cookieBanner" role="dialog" aria-live="polite">
+    <p class="cookie__text">We use cookies to improve the website experience.</p>
+    <button class="btn btn--small" id="cookieAccept">Accept</button>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Go to top">TravelBuddy</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="#destinations">Destinations</a></li>
+          <li><a class="nav__link" href="#packages">Packages</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#testimonials">Testimonials</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Burger -->
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile" id="mobileMenu" aria-hidden="true">
+      <ul class="mobile__list">
+        <li><a class="mobile__link" href="#destinations">Destinations</a></li>
+        <li><a class="mobile__link" href="#packages">Packages</a></li>
+        <li><a class="mobile__link" href="#about">About</a></li>
+        <li><a class="mobile__link" href="#testimonials">Testimonials</a></li>
+        <li><a class="mobile__link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1) Hero -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <h1 class="hero__title">Travel easier.</h1>
+          <p class="hero__text">
+            Plan routes, discover destinations, and book packages in one place.
+            Below you’ll see destinations loaded from a free API (GET).
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn" href="#destinations">View destinations</a>
+            <a class="btn btn--ghost" href="#contact">Contact us</a>
+          </div>
+
+          <ul class="hero__stats">
+            <li class="stat"><span class="stat__num">120+</span><span class="stat__label">routes</span></li>
+            <li class="stat"><span class="stat__num">24/7</span><span class="stat__label">support</span></li>
+            <li class="stat"><span class="stat__num">4.9</span><span class="stat__label">rating</span></li>
+          </ul>
+        </div>
+
+        <article class="hero__card" aria-label="Promo card">
+          <h2 class="card__title">Hot deal</h2>
+          <p class="card__text">Save up to 25% with early booking.</p>
+
+          <!-- Photos (no download, just links) -->
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=70"
+            alt="Mountains and road"
+            style="width:100%; height:160px; object-fit:cover; border-radius:14px; margin-top:12px;"
+            loading="lazy"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=70"
+            alt="Travel and nature"
+            style="width:100%; height:110px; object-fit:cover; border-radius:14px; margin-top:10px;"
+            loading="lazy"
+          />
+
+          <div class="card__line"></div>
+          <p class="card__hint">*Offer terms depend on the package</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2) Destinations (API GET) -->
+    <section class="section" id="destinations">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Popular destinations</h2>
+          <p class="section__subtitle">Data is loaded via fetch (GET) from a free API.</p>
+        </header>
+
+        <div class="grid" id="destinationsGrid" aria-live="polite">
+          <!-- Cards inserted by JS -->
+        </div>
+
+        <p class="note" id="apiNote"></p>
+      </div>
+    </section>
+
+    <!-- 3) Packages -->
+    <section class="section section--alt" id="packages">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Packages</h2>
+          <p class="section__subtitle">Choose a plan that fits your trip.</p>
+        </header>
+
+        <div class="grid">
+          <article class="price">
+            <h3 class="price__title">City Break</h3>
+            <p class="price__desc">2–4 days, perfect for a quick escape</p>
+            <p class="price__money">$199</p>
+            <ul class="price__list">
+              <li>3* hotel</li>
+              <li>City walking tour</li>
+              <li>24/7 support</li>
+            </ul>
+            <a class="btn btn--small" href="#contact">Select</a>
+          </article>
+
+          <article class="price price--popular">
+            <div class="badge">Popular</div>
+            <h3 class="price__title">Adventure</h3>
+            <p class="price__desc">5–7 days, nature + activities</p>
+            <p class="price__money">$499</p>
+            <ul class="price__list">
+              <li>Hotel / camping</li>
+              <li>Guide + routes</li>
+              <li>Transfer included</li>
+            </ul>
+            <a class="btn btn--small" href="#contact">Select</a>
+          </article>
+
+          <article class="price">
+            <h3 class="price__title">Premium</h3>
+            <p class="price__desc">7–10 days, comfort + service</p>
+            <p class="price__money">$999</p>
+            <ul class="price__list">
+              <li>5* hotel</li>
+              <li>Personal manager</li>
+              <li>Top locations</li>
+            </ul>
+            <a class="btn btn--small" href="#contact">Select</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) About -->
+    <section class="section" id="about">
+      <div class="container about">
+        <article class="about__box">
+          <h2 class="section__title">About us</h2>
+          <p class="section__subtitle">
+            This landing page is a final project demo: responsive layout, hover effects,
+            burger menu, API loading (GET), form validation with regex, and localStorage.
+          </p>
+
+          <ul class="about__list">
+            <li><strong>HTML5:</strong> header, nav, main, section, article, footer</li>
+            <li><strong>CSS:</strong> grid layout, transitions, breakpoints</li>
+            <li><strong>JS:</strong> burger, fetch, validation, localStorage</li>
+          </ul>
+        </article>
+
+        <aside class="about__side">
+          <div class="feature">
+            <h3 class="feature__title">Responsive</h3>
+            <p class="feature__text">Works on 1024 / 768 / 480 / 320px screens.</p>
+          </div>
+          <div class="feature">
+            <h3 class="feature__title">Small UX details</h3>
+            <p class="feature__text">Sticky header, scroll-to-top, smooth hover effects.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 5) Testimonials (6th section requirement) -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Testimonials</h2>
+          <p class="section__subtitle">A few words from our travelers.</p>
+        </header>
+
+        <div class="grid">
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__name">Sarah M.</h3>
+              <p class="card__meta">“Everything was smooth and well organized. Loved the experience!”</p>
+              <span class="tag">Review</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__name">David K.</h3>
+              <p class="card__meta">“Great support and clear planning. Would book again.”</p>
+              <span class="tag">Review</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card__body">
+              <h3 class="card__name">Nino G.</h3>
+              <p class="card__meta">“Nice routes, good value, and looks great on mobile.”</p>
+              <span class="tag">Review</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) Contact + Form validation -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Contact us</h2>
+          <p class="section__subtitle">Form + regex + show/hide password.</p>
+        </header>
+
+        <form class="form" id="contactForm" novalidate>
+          <div class="form__row">
+            <label class="label">
+              Full name
+              <input class="input" type="text" name="name" id="name" placeholder="John Doe" />
+              <span class="error" id="nameError"></span>
+            </label>
+
+            <label class="label">
+              Email
+              <input class="input" type="email" name="email" id="email" placeholder="john@mail.com" />
+              <span class="error" id="emailError"></span>
+            </label>
+          </div>
+
+          <div class="form__row">
+            <label class="label">
+              Phone
+              <input class="input" type="tel" name="phone" id="phone" placeholder="+995 555 123 456" />
+              <span class="error" id="phoneError"></span>
+            </label>
+
+            <label class="label">
+              Password
+              <div class="pass">
+                <input class="input" type="password" name="password" id="password" placeholder="Min 6 chars" />
+                <button class="pass__btn" type="button" id="togglePass">Show</button>
+              </div>
+              <span class="error" id="passError"></span>
+            </label>
+          </div>
+
+          <label class="label">
+            Message
+            <textarea class="input input--area" name="message" id="message" rows="4" placeholder="I want a trip to..."></textarea>
+            <span class="error" id="msgError"></span>
+          </label>
+
+          <div class="form__actions">
+            <button class="btn" type="submit">Send</button>
+            <p class="form__success" id="formSuccess" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> TravelBuddy</p>
+      <a class="footer__link" href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button class="to-top" id="toTop" aria-label="Scroll to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
